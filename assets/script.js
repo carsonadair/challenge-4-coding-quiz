@@ -1,41 +1,43 @@
-var quiz= document.getElementById('quiz')
-var answerEls = document.querySelectorAll('.answer')
-var questionEl = document.getElementById('question')
-var a_text = document.getElementById('a_text')
-var b_text = document.getElementById('b_text')
-var c_text = document.getElementById('c_text')
-var d_text = document.getElementById('d_text')
-var submitBtn = document.getElementById('submit')
-var currentQuiz = 0
-var score = 0
+var listQuest = document.getElementById('answer');
+var button = document.getElementById('submit');
+var questionTitle = document.getElementById('question');
+var questionNum = 0;
 
-var questionContent = [
-{ 
+var question1 = {
     question: "Test1",
-    a: "testa",
-    b: "testb",
-    c: "testc",
-    d: "testd",
-},
-{ 
+    answers: ["1","2","3","4"],
+    correct: 0
+  };
+
+var question2 = {
     question: "Test2",
-    a: "testa",
-    b: "testb",
-    c: "testc",
-    d: "testd",
-},
-{ 
+    answers: ["1","2","3","4"],
+    correct: 2
+  };
+
+var question3 = {
     question: "Test3",
-    a: "testa",
-    b: "testb",
-    c: "testc",
-    d: "testd",
-},
-{ 
+    answers: ["answer","2","3","4"],
+    correct: 1
+  }
+
+var question4 = {
     question: "Test4",
-    a: "testa",
-    b: "testb",
-    c: "testc",
-    d: "testd",
-},
-];
+    answers: ["1","2","3","4"],
+    correct: 2
+  };
+
+var questions = [question1, question2, question3, question4];
+
+function showQuest() {
+  questionTitle.textContent = questions[questionNum].question;
+  listQuest.textContent = questions[questionNum].answers;
+}
+
+
+
+button.addEventListener("click",showQuest);
+
+/* Start Timer, display first question with answer choices on the page.
+As a user clicks and answers a question it goes to next question. 
+If question is wrong, subtract a certain amount of time as a penalty. */

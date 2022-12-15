@@ -8,19 +8,24 @@ body {
     margin: 0;
 }
 
-.quiz-container {
+h1 {
+    justify-content: center;
+    text-align: center;
+}
+
+.test-container {
     background-color: rgb(188, 188, 188);
     border-radius: 10px;
     width: 600px;
     overflow: hidden;
 }
 
-.quiz-header {
+.test-header {
     padding: 50px;
 }
 
 h2 {
-    padding: 1rem;
+    padding: 10px;
     text-align: center;
     margin: 0;
 }
@@ -32,15 +37,25 @@ ul {
 
 ul li {
     font-size: 1.2rem;
-    margin: 1rem 0;
+    list-style-type: none;
+    text-align: left;
+    background-color: transparent;
+    margin: 10px 5px;
+    padding: 5px 10px;
+    border: 1px solid lightgray;
+    font-weight: normal;
 }
 
 ul li label {
     cursor: pointer;
 }
+  
+  li:hover {
+    background: #dc914a;
+  }
 
 button {
-    background-color: #03cae4;
+    background-color: #7a7a7a;
     color: #fff;
     border: none;
     display: block;
@@ -52,10 +67,10 @@ button {
 }
 
 button:hover {
-    background-color: #04adc4;
+    background-color: #bcbcbc;
 }
 
 button:focus {
     outline: none;
-    background-color: #44b927;
+    background-color: #ff6600;
 }
