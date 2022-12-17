@@ -10,6 +10,7 @@ var endQuiz = document.getElementById('endquiz');
 var saveButton = document.getElementById('save-score');
 var initialInput = document.getElementById('initials');
 var timeCount = document.getElementById('timer');
+var restartButton = document.getElementById('restart');
 var currentQuest = 0
 var timeLeft = 60
 
@@ -47,6 +48,7 @@ function showScore() {
   answerEl.classList.add("hide");
   nextButton.classList.add("hide");
   endQuiz.classList.remove("hide");
+  restartButton.classList.remove("hide")
 }
 
 function nextQuest() {
@@ -75,12 +77,12 @@ function answerSelect(event) {
   }
 }
 
-a1.addEventListener("click", answerSelect);
+/*a1.addEventListener("click", answerSelect);
 a2.addEventListener("click", answerSelect);
 a3.addEventListener("click", answerSelect);
 a4.addEventListener("click", answerSelect);
 nextButton.addEventListener("click", nextQuest);
-saveButton.addEventListener("click", saveScore);
+saveButton.addEventListener("click", saveScore);*/
 
 var highScores = JSON.parse(localStorage.getItem("high-scores")) || [];
 
@@ -112,9 +114,20 @@ function startQuiz() {
   showQuest();
   }
 
+  function restartQuiz() {
+    location.reload();
+  }
+
 
 
 startButton.addEventListener("click",startQuiz);
+a1.addEventListener("click", answerSelect);
+a2.addEventListener("click", answerSelect);
+a3.addEventListener("click", answerSelect);
+a4.addEventListener("click", answerSelect);
+nextButton.addEventListener("click", nextQuest);
+saveButton.addEventListener("click", saveScore);
+restartButton.addEventListener("click", restartQuiz);
 
 /* Start Timer, display first question with answer choices on the page.
 As a user clicks and answers a question it goes to next question. 
