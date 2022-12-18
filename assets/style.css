@@ -54,6 +54,13 @@ ul li label {
     background: #dc914a;
   }
 
+#timer {
+    font-size: 25px;
+    color: #4a4a4a;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 button {
     background-color: #7a7a7a;
     color: #fff;
@@ -73,6 +80,25 @@ button:hover {
 button:focus {
     outline: none;
     background-color: #ff6600;
+}
+
+#endquiz {
+    text-align: center;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+.scList {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    color: rgb(179, 81, 16);
+}
+
+.scList li {
+    padding: 5px;
 }
 
 .hide {
