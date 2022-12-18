@@ -8,6 +8,10 @@ body {
     margin: 0;
 }
 
+section {
+    text-align: center;
+}
+
 h1 {
     justify-content: center;
     text-align: center;
