@@ -1,3 +1,5 @@
+//DOM Elements
+
 var a1 = document.getElementById('a1');
 var a2 = document.getElementById('a2');
 var a3 = document.getElementById('a3');
@@ -19,31 +21,35 @@ var timeLeft = 60;
 
 var timer;
 
+//The question objects, including answers and correct answer value.
+
 var questions = [
   {
-    question: "Test1",
-    answers: ["option", "2", "3", "4"],
+    question: "Which built-in JavaScript method returns the calling string value converted to upper case?",
+    answers: ["toUpperCase()", "toUpper()", "changeCase(upper)", "uppercase.text()"],
     correct: 0
   },
 
   {
-    question: "Test2",
-    answers: ["1", "2", "3", "4"],
+    question: "What does HTML stand for?",
+    answers: ["Hyper Trainer Marking Language", "Hyper Text Marketing Language", "Hyper Text Markup Language", "Hyper Text Markup Leveler"],
     correct: 2
   },
 
   {
-    question: "Test3",
-    answers: ["answer", "2", "3", "4"],
+    question: "What does JavaScript return to you if you try to access an object's property that doesn't exist?",
+    answers: ["null", "undefined", "oopsies", "0"],
     correct: 1
   },
 
   {
-    question: "Test4",
-    answers: ["1", "2", "3", "4"],
-    correct: 2
+    question: "Which term is used to describe expressions that result in the value of either true or false?",
+    answers: ["Selection", "Condition", "Concatenation", "Boolean"],
+    correct: 3
   }
 ];
+
+// Function to show the score at the end of the quiz
 
 function showScore() {
   clearInterval(timer);
@@ -53,6 +59,8 @@ function showScore() {
   restartButton.classList.remove("hide")
 };
 
+//Function to show each question and the possible answers.
+
 function showQuest(question) {
   questionTitle.textContent = questions[currentQuest].question;
   a1.textContent = questions[currentQuest].answers[0];
@@ -60,6 +68,8 @@ function showQuest(question) {
   a3.textContent = questions[currentQuest].answers[2];
   a4.textContent = questions[currentQuest].answers[3];
 };
+
+// Function to indicate if the selected answer was correct, then wait 2 seconds to proceed to the next question, or initial the showScore function if the quiz is over.
 
 function answerSelect(event) {
   if (questions[currentQuest].correct == event.target.value) {
@@ -87,6 +97,7 @@ function answerSelect(event) {
 
 };
 
+//Saves scores to local storage
 
 var highScores = JSON.parse(localStorage.getItem("high-scores")) || [];
 
@@ -99,6 +110,8 @@ function saveScore() {
   localStorage.setItem("high-scores", JSON.stringify(highScores));
 
 };
+
+//Shows high scores saved to local storage.
 
 function showHighScores() {
   highScoreLi.classList.remove("hide");
@@ -113,6 +126,7 @@ function showHighScores() {
   }
 };
 
+//Starts the timer and reveals the quiz questions and answers.
 
 function startQuiz() {
   timer = setInterval(function () {
@@ -126,15 +140,16 @@ function startQuiz() {
   startButton.classList.add("hide");
   questionTitle.classList.remove("hide");
   answerEl.classList.remove("hide");
-  nextButton.classList.remove("hide");
   showQuest();
 };
+
+// Reloads the page to take the quiz again.
 
 function restartQuiz() {
   location.reload();
 };
 
-
+//Listens for each button to be pressed to execute the corresponding function.
 
 startButton.addEventListener("click", startQuiz);
 a1.addEventListener("click", answerSelect);

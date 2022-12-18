@@ -77,7 +77,7 @@ button:hover {
     background-color: #bcbcbc;
 }
 
-button:focus {
+button:active {
     outline: none;
     background-color: #ff6600;
 }
@@ -104,3 +104,7 @@ input {
 .hide {
     display: none;
   }
+
+footer {
+    margin-top: 50px;
+}
