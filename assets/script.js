@@ -67,11 +67,13 @@ function showQuest(question) {
   a2.textContent = questions[currentQuest].answers[1];
   a3.textContent = questions[currentQuest].answers[2];
   a4.textContent = questions[currentQuest].answers[3];
+  setInterval(timer);
 };
 
 // Function to indicate if the selected answer was correct, then wait 2 seconds to proceed to the next question, or initial the showScore function if the quiz is over.
 
 function answerSelect(event) {
+  clearInterval(timer);
   if (questions[currentQuest].correct == event.target.value) {
     rW.textContent = ("Correct!");
     rW.style.color = "green";
@@ -93,6 +95,14 @@ function answerSelect(event) {
       return;
     }
     showQuest();
+    timer = setInterval(function () {
+      timeLeft--;
+      timeCount.textContent = timeLeft;
+      if (timeLeft <= 0) {
+        showScore();
+        return;
+      }
+    }, 1000)
   }, 2000);
 
 };
